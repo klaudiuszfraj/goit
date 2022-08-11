@@ -1,0 +1,37 @@
+@use "src/scss/variables";
+@use "src/scss/mixins";
+
+.footer__container {
+  @include mixins.flex(space-between, center, row);
+  border-top: 1px solid #E5E5E5;
+  padding: 10px 0;
+  @include mixins.tablet {
+    flex-direction: column;
+  }
+}
+
+.footer__rights {
+  span {
+    color: variables.$colorSecondary;
+  }
+}
+
+.footer__form {
+  @include mixins.flex(center, streach, row);
+  @include mixins.tablet {
+    margin: 20px 0;
+  }
+
+}
+
+.footer__email {
+  width: 230px;
+  height: 40px;
+  border: 1px solid #E7E7E7;
+}
+
+input[type=submit] {
+  background-color: variables.$colorTertiary;
+  color: variables.$colorFontWhite;
+  padding: 9px 14px;
+}

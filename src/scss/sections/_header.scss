@@ -1,0 +1,77 @@
+@use "src/scss/variables";
+@use "src/scss/mixins";
+
+
+.header__background {
+  background: rgb(244, 139, 130);
+  background: linear-gradient(180deg, rgba(243, 129, 129, 0.6474964985994398) 0%, rgba(252, 227, 138, 1) 100%), url("../images/eagle.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-bottom: 250px;
+  @include mixins.tablet {
+    padding-bottom: 100px;
+  }
+}
+
+nav {
+  @include mixins.flex(space-between, center, row);
+  padding: 14px 0;
+  @include mixins.tablet {
+    @include mixins.flex(space-between, stretch, column);
+  }
+}
+
+.nav__logo {
+  font-weight: 700;
+  font-size: 30px;
+  color: variables.$colorFontWhite;
+}
+
+.nav__links {
+  @include mixins.flex(space-between, center, row);
+  flex-basis: 600px;
+
+  a {
+    color: variables.$colorFontWhite;
+    padding: 12px 0;
+    border-bottom: 3px solid transparent;
+
+    &:hover {
+      color: variables.$colorPrimary;
+      border-color: variables.$colorPrimary;
+    }
+  }
+
+  @include mixins.tablet {
+    @include mixins.flex(space-between, center, column);
+    flex-basis: 0;
+  }
+}
+
+.header__banner {
+  @include mixins.flex(center, center, column);
+}
+
+.header__test {
+  font-size: 150px;
+  color: variables.$colorFontWhite;
+  font-weight: 700;
+  text-align: center;
+  margin: 200px 0 170px 0;
+  @include mixins.tablet {
+    font-size: 50px;
+    margin: 30px 0 50px 0;
+  }
+}
+
+.header__link {
+  color: variables.$colorFontWhite;
+  font-weight: 700;
+  border: 3px solid variables.$colorFontWhite;
+  padding: 9px 17px 14px;
+
+  &:hover {
+    border-color: rgba(244, 139, 130, 0.56);
+  }
+}
