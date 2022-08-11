@@ -1,0 +1,97 @@
+@import "src/scss/variables";
+@import "src/scss/mixins";
+@import "src/scss/placeholders";
+
+.team__text {
+  @extend %secondaryText;
+  text-align: center;
+}
+
+.team__container {
+  margin: 80px 0;
+  @include flex(space-between, center, row);
+  flex-wrap: wrap;
+  gap: 20px;
+  @media screen and (max-width: 1250px) {
+    justify-content: center;
+  }
+}
+
+.team__card {
+  width: 380px;
+  height: 470px;
+  background-color: $colorTertiary;
+  @include flex(center, center, row);
+  position: relative;
+}
+
+.team__img {
+  transition-duration: 1000ms;
+  transition-property: transform;
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(0deg, rgba(252, 227, 138, 1) 0%, rgba(244, 139, 130, 1) 100%);
+    opacity: 0;
+  }
+
+  &:hover {
+    transform: translate(-15px, -15px);
+
+    & ~ div {
+      opacity: 1;
+    }
+
+    &::after {
+      opacity: 80%;
+    }
+  }
+
+}
+
+.team__icons {
+  @include flex(center, center, row);
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  transition-duration: 1000ms;
+  transition-property: opacity;
+
+  &:hover {
+    opacity: 1;
+
+    & + picture {
+      transform: translate(-15px, -15px);
+    }
+  }
+}
+
+.team__icon {
+  @include flex(center, center, row);
+  background-color: $colorPrimary;
+  height: 56px;
+  width: 56px;
+  transition-duration: 1000ms;
+  transition-property: all;
+
+  &:hover {
+    background-color: $colorSecondary;
+
+    path {
+      fill: $colorPrimary;
+    }
+  }
+}
+
+.team__name {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 24px 0;
+}

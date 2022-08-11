@@ -1,0 +1,35 @@
+@import "src/scss/variables";
+@import "src/scss/mixins";
+@import "src/scss/placeholders";
+
+.services__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 90px;
+  grid-column-gap: 40px;
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-row-gap: 40px;
+  }
+}
+
+.services__box {
+  display: flex;
+  @include flex(space-between, flex-start, row);
+}
+
+.box__text {
+  @include flex(flex-start, flex-start, column);
+  padding-left: 27px;
+}
+
+.box__title {
+  padding-bottom: 10px;
+}
+
+.box__desc {
+  @extend %secondaryText
+}
